@@ -533,7 +533,8 @@ def gnomad_gks(
                     popmax=hl.missing(hl.tfloat), popmax_population=hl.missing(hl.tstr)
                 ),
             ),
-        )
+        ),
+        in_autosome_or_par=ht.locus.in_autosome_or_par(),
     )
 
     keep_fields = [
@@ -543,6 +544,7 @@ def gnomad_gks(
         ht.filters,
         ht.region_flag,
         ht.qual_hists.ab_hist_alt,
+        ht.in_autosome_or_par,
     ]
 
     if not skip_coverage:
